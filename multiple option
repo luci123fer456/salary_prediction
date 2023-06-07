@@ -1,0 +1,31 @@
+def select_languages():
+    available_languages = ["html", "java", "c", "python", "javascript"]
+
+    print("Available programming languages:")
+    for i, language in enumerate(available_languages):
+        print(f"{i + 1}. {language}")
+
+    selected_languages = []
+
+    while True:
+        selection = input("Select a programming language by entering its number (or 'done' to finish): ")
+
+        if selection.lower() == 'done':
+            break
+
+        try:
+            option_index = int(selection) - 1
+            if option_index >= 0 and option_index < len(available_languages):
+                selected_languages.append(available_languages[option_index])
+                print(f"Selected: {available_languages[option_index]}")
+            else:
+                print("Invalid option. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+    selected_languages_str = "/".join(selected_languages)
+    print("Selected languages: " + selected_languages_str)
+
+
+# Example usage
+select_languages()
